@@ -10,8 +10,10 @@ const useInputValue = initialValue => {
   };
 };
 
-export default ({ onSubmit }) => {
+export default React.memo(({ onSubmit }) => {
   const { resetValue, ...text } = useInputValue("");
+
+  console.log('<Form', Math.random())
 
   return (
     <form
@@ -24,4 +26,4 @@ export default ({ onSubmit }) => {
       <input {...text} />
     </form>
   );
-};
+});
