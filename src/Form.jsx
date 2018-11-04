@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const useInputValue = initialValue => {
   const [value, setValue] = useState(initialValue);
@@ -6,13 +6,13 @@ const useInputValue = initialValue => {
   return {
     value,
     onChange: e => setValue(e.target.value),
-    resetValue: () => setValue("")
+    resetValue: () => setValue('')
   };
 };
 
-export default ({ onSubmit }) => {
-  const { resetValue, ...text } = useInputValue("");
-
+export default React.memo(({ onSubmit }) => {
+  const { resetValue, ...text } = useInputValue('');
+  console.log('<Form /> is rendering...');
   return (
     <form
       onSubmit={e => {
@@ -24,4 +24,4 @@ export default ({ onSubmit }) => {
       <input {...text} />
     </form>
   );
-};
+});
